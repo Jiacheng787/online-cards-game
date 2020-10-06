@@ -1,0 +1,25 @@
+{
+  "name": "online-cards-game",
+  "version": "1.0.0",
+  "description": "在线棋牌室",
+  "main": "playingCards.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiacheng787/online-cards-game.git"
+  },
+  "author": "Garfield",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiacheng787/online-cards-game/issues"
+  },
+  "homepage": "https://github.com/Jiacheng787/online-cards-game#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "figlet": "^1.5.0",
+    "inquirer": "^7.3.3",
+    "shelljs": "^0.8.4"
+  }
+}
