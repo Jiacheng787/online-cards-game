@@ -30,6 +30,6 @@ npm install
 运行项目
 
 ```shell
-node index.js
+node main.js
 ```
 

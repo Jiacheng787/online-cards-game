@@ -3,7 +3,7 @@ const chalk = require("chalk");
 const figlet = require("figlet");
 const shell = require("shelljs");
 
-const cards = require('./playingCards.js')
+const app = require('./src/index.js');
 
 const init = () => {
   console.log(
@@ -52,14 +52,19 @@ const success = filepath => {
 const run = async () => {
   // show script introduction
   init();
-  console.log("正在初始化卡牌...");
-  const a = await cards.initCards();
+  
+  console.log("正在初始化卡牌...")
+  const cards = new app.Cards();
+  
   console.log("正在洗牌...");
-  const b = await cards.shuffle(a);
+  cards.shuffle();
+  
   console.log("正在发牌...");
-  const c = await cards.deal(b);
-  console.log(c.n == "you" ? "您先出牌" : "对手先出牌")
-  console.log(c.you)
+  cards.deal();
+  console.log(cards);
+  
+  console.log(cards.n == "you" ? "您先出牌" : "对手先出牌")
+  console.log(cards.you)
 
   // ask questions
   // const answers = await askQuestions();
