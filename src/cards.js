@@ -1,3 +1,5 @@
+const util = require('../utils/util.js');
+
 class Cards {
 	constructor() {
 		const suits = ['♠', '♥', '♣', '♦'];
@@ -40,48 +42,7 @@ class Cards {
 		this.you.sort((a, b) => a.value - b.value);
 		this.opponent.sort((a, b) => a.value - b.value);
 		
-		this.n = this.firstPlay();
-	}
-	
-	firstPlay() {
-		let min_you, min_opponent;
-		// forEach无法通过break或者return跳出循环
-		// 这里使用抛出异常的方法跳出循环，然后使用try...catch捕获异常
-		// 也可以使用some或者every
-		try {
-			this.you.forEach(item => {
-				if(item.value == 15) {
-					throw new Error();
-				}
-				if(item.suit == "♥") {
-					if(!min_you || min_you > item.value) {
-						min_you = item.value;
-					}
-				}
-			})
-		} catch(e) {
-			return "you"
-		}
-		
-		try {
-			this.opponent.forEach(item => {
-				if(item.value == 15) {
-					throw new Error();
-				}
-				if(item.suit == "♥") {
-					if(!min_opponent || min_opponent > item.value) {
-						min_opponent = item.value;
-					}
-				}
-			})
-		} catch(e) {
-			return "opponent"
-		}
-		if(min_you < min_opponent) {
-			return "you"
-		} else {
-			return "opponent"
-		}
+		this.n = util.firstPlay(this.you, this.opponent);
 	}
 }
 
